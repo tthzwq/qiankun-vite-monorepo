@@ -1,0 +1,13 @@
+{
+  "name": "monorepo-project",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "scripts": {
+    "dev:vue": "cd ./app/vue-project && pnpm run dev",
+    "dev:react": "cd ./app/react-project && pnpm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
