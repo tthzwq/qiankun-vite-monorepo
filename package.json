@@ -4,8 +4,12 @@
   "description": "",
   "private": "true",
   "scripts": {
-    "dev:vue": "cd ./app/vue-project && pnpm run dev",
-    "dev:react": "cd ./app/react-project && pnpm run dev"
+    "dev": "pnpm --filter './app/**' run dev",
+    "build": "pnpm --filter './app/**' run build && pnpm run postbuild",
+    "postbuild": "sh ./scripts/bundle.sh",
+    "dev:main": "pnpm --filter 'main-project' run dev",
+    "dev:vue": "pnpm --filter 'vue-project' run dev",
+    "dev:react": "pnpm --filter 'react-project' run dev"
   },
   "keywords": [],
   "author": "",
