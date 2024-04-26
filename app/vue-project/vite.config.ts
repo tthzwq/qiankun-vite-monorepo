@@ -4,7 +4,6 @@ import { type UserConfig, defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import VueDevTools from 'vite-plugin-vue-devtools'
-import viteQiankun from 'vite-plugin-qiankun'
 
 const env = loadEnv('development', __dirname)
 
@@ -24,7 +23,6 @@ export default defineConfig({
     vue(),
     vueJsx(),
     // VueDevTools(),
-    viteQiankun('vue-project', { useDevMode: true })
   ],
   resolve: {
     alias: {
