@@ -15,4 +15,9 @@ app.use(router)
 app.mount('#app')
 
 registerMicroApps(microApps)
-start({ sandbox: { strictStyleIsolation: true } })
+
+if (import.meta.env.MODE === "production") {
+  start({ sandbox: { strictStyleIsolation: true } })
+} else {
+  start()
+}

@@ -68,8 +68,12 @@ if (import.meta.env.MODE === "production") {
 }
 
 registerMicroApps(microApps)
-// 启用 sandbox 隔离样式
-start({ sandbox: { strictStyleIsolation: true } })
+// 生产环境启用 sandbox 隔离样式
+if (import.meta.env.MODE === "production") {
+  start({ sandbox: { strictStyleIsolation: true } })
+} else {
+  start()
+}
 ```
 
 ## 遇到的问题
@@ -80,4 +84,4 @@ start({ sandbox: { strictStyleIsolation: true } })
 
 - 子应用会影响到主应用 (JS effect / CSS) (子应用使用 `vite-plugin-qiankun` 提供的 `qiankunWindow` JS effect 不会逃逸)
 - 在生产环境 子应用样式影响会随子应用卸载而重制（但 `vite` 子应用 开发环境不会重制）
-- 即使开启`sandbox: { strictStyleIsolation: true }` 后生产环境会隔离样式，（但 `vite` 子应用 开发环境依旧如上）
+- 开启`sandbox: { strictStyleIsolation: true }` 后生产环境会隔离样式，（但 开发环境`vite`子应用情况依旧如上，且样式无法应用到自身）
