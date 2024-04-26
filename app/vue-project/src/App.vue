@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-// @ts-ignore
-window.aaa = 124
 </script>
 
 <template>
   <header>
-    <h1 style="color: red;"> 子应用会影响到主应用 (JS effect / CSS) </h1>
-    <h1 style="color: red;"> 在生产环境 子应用样式影响会随子应用卸载而重制 <span>（但开发环境不会重制）</span> </h1>
     <img alt="Vue logo" class="logo" src="@/assets/git_shortcut_keys.png" width="125" height="125" />
 
     <div class="wrapper">
@@ -24,7 +20,7 @@ window.aaa = 124
   <RouterView />
 </template>
 
-<style scoped>
+<style>
 header {
   line-height: 1.5;
   max-height: 100vh;
