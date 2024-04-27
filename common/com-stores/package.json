@@ -1,8 +1,8 @@
 {
-  "name": "components",
+  "name": "com-stores",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "lodash-es": "^4.17.21",
-    "mitt": "^3.0.1"
+    "mitt": "^3.0.1",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.12"
