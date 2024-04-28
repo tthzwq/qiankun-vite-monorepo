@@ -2,20 +2,29 @@
   "name": "com-stores",
   "version": "1.0.0",
   "description": "",
-  "main": "./index.ts",
+  "types": "./src/index.ts",
+  "main": "./src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "father build",
+    "dev": "father dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.1",
     "pinia": "^2.1.7",
     "vue": "^3.4.21"
   },
-  "devDependencies": {
-    "@types/lodash-es": "^4.17.12"
+  "peerDependencies": {
+    "lodash-es": ">=4.0.0",
+    "mitt": ">=3.0.0",
+    "pinia": ">=2.0.0",
+    "vue": ">=3.0.0"
   }
 }

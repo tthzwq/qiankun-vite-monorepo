@@ -13,10 +13,8 @@
 <script setup lang="ts">
 
 
-import { useNumStore, useCounterStore } from 'com-stores'
-const numStore = useNumStore()
+import { useCounterStore } from '@/stores'
 const counterStore = useCounterStore()
-console.log({counterStore});
 
 
 function handleClick() {

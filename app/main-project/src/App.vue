@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { useNumStore, useCounterStore } from 'com-stores'
+import { useNumStore, useCounterStore } from '@/stores'
 const numStore = useNumStore()
 const counterStore = useCounterStore()
 
