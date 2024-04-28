@@ -1,0 +1,1 @@
+export { default as ComInput } from "./src/input.vue"

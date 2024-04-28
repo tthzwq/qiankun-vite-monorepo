@@ -1,10 +1,12 @@
 {
-  "name": "components",
+  "name": "com-components",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./index.ts",
+  "types": "./index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "father build",
+    "dev": "father dev"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,15 @@
     "mitt": "^3.0.1"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.12"
+    "@types/lodash-es": "^4.17.12",
+    "element-plus": "^2.7.2",
+    "sass": "^1.75.0",
+    "unplugin-auto-import": "^0.17.5",
+    "unplugin-vue-components": "^0.26.0",
+    "vue": "^3.4.21"
+  },
+  "peerDependencies": {
+    "element-plus": ">=2.0.0",
+    "vue": ">=3.0.0"
   }
 }

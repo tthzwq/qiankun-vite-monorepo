@@ -14,7 +14,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "com-components": "workspace:^",
     "com-stores": "workspace:^",
+    "element-plus": "^2.7.2",
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.1",
     "pinia": "^2.1.7",
@@ -39,7 +41,11 @@
     "jsdom": "^24.0.0",
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
+    "rollup-plugin-visualizer": "^5.12.0",
+    "sass": "^1.75.0",
     "typescript": "~5.4.0",
+    "unplugin-auto-import": "^0.17.5",
+    "unplugin-vue-components": "^0.26.0",
     "vite": "^5.2.8",
     "vite-plugin-vue-devtools": "^7.0.25",
     "vitest": "^1.4.0",

@@ -1,0 +1,1 @@
+export { default as ComButton } from "./src/button.vue"

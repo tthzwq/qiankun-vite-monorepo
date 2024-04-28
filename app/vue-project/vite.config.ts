@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import viteQiankun from 'vite-plugin-qiankun'
+import { visualizer } from "rollup-plugin-visualizer"
 
 const env = loadEnv('development', __dirname)
 
@@ -24,6 +25,7 @@ export default defineConfig({
     vue(),
     vueJsx(),
     // VueDevTools(),
+    visualizer({ filename: "./dist/stats.html" }),
     viteQiankun('vue-project', { useDevMode: true })
   ],
   resolve: {

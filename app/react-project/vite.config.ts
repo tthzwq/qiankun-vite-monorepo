@@ -1,6 +1,7 @@
 import { type UserConfig, defineConfig, loadEnv } from 'vite'
 import viteQiankun from 'vite-plugin-qiankun'
 import react from '@vitejs/plugin-react'
+import { visualizer } from "rollup-plugin-visualizer"
 
 const env = loadEnv('development', __dirname)
 
@@ -20,6 +21,7 @@ export default defineConfig(({ command }) => {
       // 在开发模式下需要把react()关掉
       // https://github.com/umijs/qiankun/issues/1257
       ...(command === 'serve' ? [] : [react()]),
+      visualizer({ filename: "./dist/stats.html" }),
       viteQiankun('react-project', { useDevMode: true })
     ]
   }
