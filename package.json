@@ -9,7 +9,10 @@
     "postbuild": "sh ./scripts/bundle.sh",
     "dev:main": "pnpm --filter 'main-project' run dev",
     "dev:vue": "pnpm --filter 'vue-project' run dev",
-    "dev:react": "pnpm --filter 'react-project' run dev"
+    "dev:react": "pnpm --filter 'react-project' run dev",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +20,7 @@
   "devDependencies": {
     "@types/node": "^20.12.5",
     "father": "^4.4.0",
-    "typescript": "~5.4.0"
+    "typescript": "~5.4.0",
+    "vitepress": "^1.1.4"
   }
 }
