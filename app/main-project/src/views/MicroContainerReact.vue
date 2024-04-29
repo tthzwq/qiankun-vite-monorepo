@@ -14,7 +14,7 @@ type Pinia = Parameters<typeof subscribePlugin>[1]
 const pinia = getActivePinia()
 const piniaPlugin = subscribePlugin(emitter, pinia as unknown as Pinia)
 
-const app = microApps[0]
+const app = microApps[1]
 onMounted(() => {
   loadMicroApp(
     {

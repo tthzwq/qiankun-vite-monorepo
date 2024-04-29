@@ -24,5 +24,10 @@ function handleClick() {
   <button @click="counterStore.increment">increment</button>
   <button @click="handleClick">set sotre</button>
 
-  <RouterView />
+
+  <router-view v-slot="{ Component }">
+    <keep-alive>
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
 </template>

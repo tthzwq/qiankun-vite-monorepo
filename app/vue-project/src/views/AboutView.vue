@@ -7,13 +7,17 @@
 <button @click="counterStore.decrement">decrement</button>
 <button @click="counterStore.increment">increment</button>
 <button @click="handleClick">$forceUpdate</button>
+
+<input type="text" v-model="value">
   </div>
 </template>
 
 <script setup lang="ts">
+const value = ref("1")
 
 
 import { useCounterStore } from '@/stores'
+import { ref } from 'vue';
 const counterStore = useCounterStore()
 
 
