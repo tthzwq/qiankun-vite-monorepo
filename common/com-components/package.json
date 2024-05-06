@@ -2,8 +2,9 @@
   "name": "com-components",
   "version": "1.0.0",
   "description": "",
+  "module": "./dist/esm/index.js",
   "main": "./index.ts",
-  "types": "./index.ts",
+  "types": "./src/index.ts",
   "scripts": {
     "build": "father build",
     "dev": "father dev"
