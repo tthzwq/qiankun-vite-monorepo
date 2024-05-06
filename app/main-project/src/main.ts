@@ -2,11 +2,10 @@ import { createApp } from 'vue'
 import { createPinia, type PiniaPlugin } from 'pinia'
 import { emitter } from '@/plugin/emitter'
 import { publishPlugin, subscribePlugin } from 'com-stores'
-import { createStore } from "./stores"
+import { createStore } from './stores'
 
 import App from './App.vue'
 import router from './router'
-
 
 const app = createApp(App)
 

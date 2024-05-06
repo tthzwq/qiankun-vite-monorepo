@@ -8,7 +8,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { visualizer } from "rollup-plugin-visualizer"
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import { ComComponentsResolver } from "com-components/reslovers/reslovers"
+import { ComComponentsResolver } from "com-components/dist/esm/reslovers/reslovers"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -30,7 +30,7 @@ export default defineConfig({
     // VueDevTools(),
     visualizer({ filename: "./dist/stats.html" }),
     AutoImport({
-      dts: false,
+      // dts: false,
       imports: ['vue', 'vue-router'],
       resolvers: [
         ElementPlusResolver(),
@@ -38,7 +38,7 @@ export default defineConfig({
       ],
     }),
     Components({
-      dts: false,
+      // dts: false,
       resolvers: [
         ElementPlusResolver(),
         ComComponentsResolver()

@@ -1,5 +1,7 @@
 <template>
   <div class="about">
+    <ComButton />
+    <ComInput />
     <h1>这是子应用 About 页面</h1>
 
 <p>count: {{ counterStore.count }}</p>

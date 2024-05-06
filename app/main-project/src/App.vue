@@ -20,10 +20,9 @@ function handleClick() {
 
   <p>count: {{ counterStore.count }}</p>
   <p>doubleCount: {{ counterStore.doubleCount }}</p>
-  <button @click="counterStore.decrement">decrement</button>
-  <button @click="counterStore.increment">increment</button>
-  <button @click="handleClick">set sotre</button>
-
+  <el-button @click="counterStore.decrement">decrement</el-button>
+  <el-button @click="counterStore.increment">increment</el-button>
+  <el-button @click="handleClick">set sotre</el-button>
 
   <router-view v-slot="{ Component }">
     <keep-alive>

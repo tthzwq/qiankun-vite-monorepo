@@ -25,12 +25,12 @@ const router = createRouter({
     //   component: MicroContainer
     // },
     {
-      path: "/micro-vue:app(.*)",
+      path: "/micro-vue:path(.*)",
       name: "micro-vue",
       component: MicroContainer
     },
     {
-      path: "/micro-react:app(.*)",
+      path: "/micro-react:path(.*)",
       name: "micro-react",
       component: MicroContainerReact
     }
