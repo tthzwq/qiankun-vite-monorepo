@@ -3,13 +3,29 @@
   <div ref="container" id="micro-container"></div>
 </template>
 
+<script lang="ts">
+  import type { MicroApp } from "qiankun";
+  export default {
+    name: "MicroContainer",
+    beforeRouteEnter() {
+      const microApp: MicroApp | null = (this as unknown as { microApp: MicroApp })?.microApp
+      microApp && microApp.update?.({ activated: true })
+
+    },
+    beforeRouteLeave() {
+      const microApp: MicroApp | null = (this as unknown as { microApp: MicroApp })?.microApp
+      microApp && microApp.update?.({ activated: false })
+    }
+  };
+</script>
+
 <script setup lang="ts">
 import { loadMicroApp } from 'qiankun'
 import { subscribePlugin } from 'com-stores'
 import microApps from '../micro-app'
 import { emitter as originEmitter } from '@/plugin/emitter'
 import { getActivePinia } from 'pinia'
-import { onMounted, onUnmounted, getCurrentInstance, ref } from 'vue'
+import { onMounted, onUnmounted, getCurrentInstance, ref, shallowRef } from 'vue'
 import { useRoute } from 'vue-router'
 import { ElMessageBox } from 'element-plus'
 import 'element-plus/es/components/message-box/style/css'
@@ -38,14 +54,14 @@ const piniaPlugin = subscribePlugin(emitter, pinia as unknown as Pinia)
 const route = useRoute()
 const app = microApps.find((item) => item.activeRule === route.name)
 
-let microApp: ReturnType<typeof loadMicroApp> | null = null
+const microApp = shallowRef<ReturnType<typeof loadMicroApp> | null>(null);
 
 function loadMicro(appOption = {}) {
   if (!app) return
 
-  if (microApp) {
-    microApp.unmount()
-    microApp = null
+  if (microApp.value) {
+    microApp.value.unmount();
+    microApp.value = null;
   }
 
   const options = Object.assign(
@@ -60,7 +76,7 @@ function loadMicro(appOption = {}) {
     appOption || {}
   )
 
-  microApp = loadMicroApp(options, {
+  microApp.value = loadMicroApp(options, {
     // ...(import.meta.env.MODE === 'production' && { sandbox: { strictStyleIsolation: true } }),
     // sandbox: { strictStyleIsolation: true },
     // sandbox: { experimentalStyleIsolation: true },
@@ -78,8 +94,8 @@ function loadMicro(appOption = {}) {
     }
   })
 
-  const originUnmount = microApp!.unmount.bind(microApp)
-  Reflect.set(microApp, 'unmount', function () {
+  const originUnmount = microApp.value!.unmount.bind(microApp.value)
+  Reflect.set(microApp.value, 'unmount', function () {
     // 取消子应用事件监听， 防止内存泄露
     emitterEvents.forEach((handler, type) => {
       emitter.off(type, handler)
@@ -110,6 +126,8 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  microApp && microApp.unmount()
+  microApp.value && microApp.value.unmount()
 })
+
+defineExpose({ microApp })
 </script>

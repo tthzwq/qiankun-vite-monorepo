@@ -27,6 +27,7 @@ declare module 'vite-plugin-qiankun/dist/helper' {
     routerBase: string
     emitter: QiankunEmitter
     piniaPlugin: PiniaPlugin
+    activated?: boolean
   }
 }
 
@@ -94,6 +95,14 @@ renderWithQiankun({
   },
   update(props: QiankunProps) {
     console.log('update', props)
+    // 当前路由是否属于子应用路由
+    const activated = props.activated
+    if (activated === false) {
+      // 关闭 history event 的监听器
+      router && (router.listening = false)
+    } else if (activated === true) {
+      router && (router.listening = true)
+    }
   },
   unmount(props: QiankunProps) {
     console.log('vite被卸载了', props)
